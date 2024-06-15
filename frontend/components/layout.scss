@@ -1,0 +1,52 @@
+body.awi-layout {
+   display: grid;
+   grid-template-columns: 20rem auto;
+   grid-template-rows: 5rem auto;
+   overflow-y: auto;
+
+   &>header {
+      grid-column: 1/1;
+      grid-row: 1/1;
+      background-color: var(--clr-neutral-200);
+
+      font-size: 2.5rem;
+
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+
+      border-bottom: solid var(--clr-neutral-800) 0.15rem;
+   }
+
+   &>nav {
+      grid-column: 1/1;
+      grid-row: 2/2;
+      background-color: var(--clr-neutral-200);
+      padding-top: 1rem;
+
+      & button {
+         width: calc(100% - 2rem);
+         font-size: 1.25rem;
+         padding: 0.4rem 0;
+         margin: 0.35rem 1rem;
+
+         color: var(--clr-neutral-900);
+         background-color: var(--clr-neutral-300);
+
+         outline: none;
+         border: none;
+         border-radius: 1rem;
+
+         &:hover {
+            background-color: var(--clr-neutral-400);
+            cursor: pointer;
+         }
+      }
+   }
+
+   &>main {
+      grid-column: 2/2;
+      grid-row: 1/2;
+   }
+}

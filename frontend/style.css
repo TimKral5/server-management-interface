@@ -1,0 +1,77 @@
+html,
+body {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --clr-neutral-100: rgb(20 20 20);
+  --clr-neutral-200: rgb(30 30 30);
+  --clr-neutral-300: rgb(40 40 40);
+  --clr-neutral-400: rgb(45 45 45);
+  --clr-neutral-800: rgb(230 230 230);
+  --clr-neutral-900: rgb(255 255 255);
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  color: var(--clr-neutral-900);
+  background-color: var(--clr-neutral-100);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body.awi-layout {
+  display: grid;
+  grid-template-columns: 20rem auto;
+  grid-template-rows: 5rem auto;
+  overflow-y: auto;
+}
+body.awi-layout > header {
+  grid-column: 1/1;
+  grid-row: 1/1;
+  background-color: var(--clr-neutral-200);
+  font-size: 2.5rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  border-bottom: solid var(--clr-neutral-800) 0.15rem;
+}
+body.awi-layout > nav {
+  grid-column: 1/1;
+  grid-row: 2/2;
+  background-color: var(--clr-neutral-200);
+  padding-top: 1rem;
+}
+body.awi-layout > nav button {
+  width: calc(100% - 2rem);
+  font-size: 1.25rem;
+  padding: 0.4rem 0;
+  margin: 0.35rem 1rem;
+  color: var(--clr-neutral-900);
+  background-color: var(--clr-neutral-300);
+  outline: none;
+  border: none;
+  border-radius: 1rem;
+}
+body.awi-layout > nav button:hover {
+  background-color: var(--clr-neutral-400);
+  cursor: pointer;
+}
+body.awi-layout > main {
+  grid-column: 2/2;
+  grid-row: 1/2;
+}
+
+/*# sourceMappingURL=style.css.map */
