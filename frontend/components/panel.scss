@@ -1,0 +1,28 @@
+$border-radius: 0.8em;
+
+.awi-panel {
+   border: 0 solid;
+   border-radius: $border-radius;
+   background-color: var(--clr-neutral-300);
+
+   &>span {
+      display: block;
+      
+      border: 0 solid;
+      border-top-left-radius: $border-radius;
+      border-bottom-right-radius: $border-radius;
+
+      padding: 0.5em 0.8em;
+      width: max-content;
+      background-color: var(--clr-neutral-500);
+
+      margin-bottom: 0.5em;
+      font-weight: 600;
+
+      user-select: none;
+   }
+   
+   &>p {
+      margin: 0 0.5em;
+   }
+}
