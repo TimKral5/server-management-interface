@@ -4,7 +4,7 @@
    "description": "",
    "main": "index.js",
    "scripts": {
-      "build": "clear && sass components/index.scss style.css",
+      "build": "clear && sass components/__index.scss style.css",
       "start": "npm run build && serve",
       "test": "echo \"Error: no test specified\" && exit 1"
    },

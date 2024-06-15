@@ -41,7 +41,7 @@ body.awi-layout > header {
   grid-column: 1/1;
   grid-row: 1/1;
   background-color: var(--clr-neutral-200);
-  font-size: 2.5rem;
+  font-size: 1.25rem;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -54,24 +54,29 @@ body.awi-layout > nav {
   background-color: var(--clr-neutral-200);
   padding-top: 1rem;
 }
-body.awi-layout > nav button {
+body.awi-layout > nav > * {
   width: calc(100% - 2rem);
   font-size: 1.25rem;
   padding: 0.4rem 0;
   margin: 0.35rem 1rem;
+  display: block;
+  text-align: center;
+  text-decoration: none;
   color: var(--clr-neutral-900);
   background-color: var(--clr-neutral-300);
   outline: none;
   border: none;
   border-radius: 1rem;
 }
-body.awi-layout > nav button:hover {
+body.awi-layout > nav > *:hover {
   background-color: var(--clr-neutral-400);
   cursor: pointer;
 }
 body.awi-layout > main {
   grid-column: 2/2;
-  grid-row: 1/2;
+  grid-row: 1/span 2;
+  overflow-y: auto;
+  padding: 0 1rem;
 }
 
 /*# sourceMappingURL=style.css.map */
