@@ -69,13 +69,27 @@ body.awi-layout > header {
   grid-column: 1/1;
   grid-row: 1/1;
   background-color: var(--clr-neutral-200);
-  font-size: 1.25rem;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
   border-bottom: solid var(--clr-neutral-800) 0.15rem;
+  font-size: 1.25rem;
+  display: grid;
+  grid-template-columns: auto;
   user-select: none;
+}
+body.awi-layout > header > div {
+  height: min-content;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+}
+body.awi-layout > header > button {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  display: none;
+  margin-left: 0.5rem;
+  aspect-ratio: 1/1;
 }
 body.awi-layout > nav {
   grid-column: 1/1;
@@ -101,6 +115,9 @@ body.awi-layout > nav > *:hover {
   background-color: var(--clr-neutral-400);
   cursor: pointer;
 }
+body.awi-layout > nav > *.active {
+  background-color: var(--clr-neutral-500);
+}
 body.awi-layout > main {
   grid-column: 2/2;
   grid-row: 1/span 2;
@@ -111,7 +128,7 @@ body.awi-layout > main > h1 {
   user-select: none;
 }
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 1100px) {
   body.awi-layout {
     grid-template-rows: 3rem auto;
     grid-template-columns: 0 auto;
@@ -119,6 +136,11 @@ body.awi-layout > main > h1 {
   body.awi-layout > header {
     grid-column: 1/span 2;
     grid-row: 1/1;
+    grid-template-columns: 2rem auto;
+    gap: 0.4rem;
+  }
+  body.awi-layout > header > button {
+    display: block;
   }
   body.awi-layout > main {
     grid-column: 2/2;
@@ -147,13 +169,12 @@ body.awi-layout > main > h1 {
 }
 
 .awi-grid {
-  container-type: inline-size;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   display: grid;
   gap: 0.75rem;
 }
 
-@media screen and (max-width: 1500px) {
+@media screen and (max-width: 1700px) {
   .awi-grid {
     grid-template-columns: 1fr 1fr 1fr;
   }
@@ -163,7 +184,7 @@ body.awi-layout > main > h1 {
     grid-template-columns: 1fr 1fr;
   }
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
   .awi-grid {
     grid-template-columns: 1fr;
   }
