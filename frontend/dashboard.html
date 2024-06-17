@@ -7,11 +7,12 @@
    <title>Document</title>
 
    <link rel="stylesheet" href="style.css">
+   <script src="script.js" defer></script>
 </head>
 
 <body class="awi-layout">
    <header>
-      <button></button>
+      <button onclick="toggleNav()"></button>
       <div class="logo"><a href="./dashboard.html">Server Management Interface</a></div>
    </header>
    <nav>
@@ -28,7 +29,7 @@
       <ul class="awi-grid">
          <li class="awi-panel" style="height: 10rem;">
             <span>CPU</span>
-            <table class="awi-table">
+            <table class="awi-panel-table">
                <tbody>
                   <tr>
                      <td>Utilization</td>
@@ -43,7 +44,7 @@
          </li>
          <li class="awi-panel" style="height: 10rem;">
             <span>Memory</span>
-            <table class="awi-table">
+            <table class="awi-panel-table">
                <tbody>
                   <tr>
                      <td>Utilization</td>
@@ -58,7 +59,7 @@
          </li>
          <li class="awi-panel" style="height: 10rem;">
             <span>Graphics</span>
-            <table class="awi-table">
+            <table class="awi-panel-table">
                <tbody>
                   <tr>
                      <td>Utilization</td>
@@ -73,7 +74,7 @@
          </li>
          <li class="awi-panel" style="height: 10rem;">
             <span>Disks</span>
-            <table class="awi-table">
+            <table class="awi-panel-table">
                <tbody>
                   <tr>
                      <th>ID</th>
@@ -95,7 +96,7 @@
          </li>
          <li class="awi-panel" style="height: 10rem;">
             <span>Services</span>
-            <table class="awi-table">
+            <table class="awi-panel-table">
                <tbody>
                   <tr>
                      <td>Running</td>
@@ -114,7 +115,7 @@
          </li>
          <li class="awi-panel" style="height: 10rem;">
             <span>Containers</span>
-            <table class="awi-table">
+            <table class="awi-panel-table">
                <tbody>
                   <tr>
                      <td>Running</td>

@@ -11,7 +11,7 @@ body.awi-layout {
       border-bottom: solid var(--clr-neutral-800) 0.15rem;
 
       font-size: 1.25rem;
-      
+
       display: grid;
       grid-template-columns: auto;
 
@@ -49,10 +49,12 @@ body.awi-layout {
       user-select: none;
 
       &>* {
-         width: calc(100% - 2rem);
+         width: 30rem;
+         max-width: calc(100% - 2rem);
+
          font-size: 1.25rem;
          padding: 0.4rem 0;
-         margin: 0.35rem 1rem;
+         margin: 0.35rem auto;
 
          display: block;
          text-align: center;
@@ -94,7 +96,7 @@ body.awi-layout {
       &>header {
          grid-column: 1/span 2;
          grid-row: 1/1;
-         
+
          grid-template-columns: 2rem auto;
 
          gap: 0.4rem;
@@ -107,6 +109,14 @@ body.awi-layout {
       &>main {
          grid-column: 2/2;
          grid-row: 2/2;
+      }
+   }
+
+   body.awi-layout.show-nav {
+      grid-template-columns: auto 0;
+
+      &>main {
+         display: none;
       }
    }
 }

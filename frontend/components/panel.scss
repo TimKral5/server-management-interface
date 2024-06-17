@@ -7,7 +7,7 @@ $border-radius: 0.8em;
 
    &>span {
       display: block;
-      
+
       border: 0 solid;
       border-top-left-radius: $border-radius;
       border-bottom-right-radius: $border-radius;
@@ -21,8 +21,33 @@ $border-radius: 0.8em;
 
       user-select: none;
    }
-   
+
    &>p {
       margin: 0 0.5em;
+   }
+
+   &>table.awi-panel-table {
+      width: 100%;
+
+      &>tbody>tr {
+         display: flex;
+         margin: 0 0.5em;
+         border-top: 0.1em solid;
+         padding: 0.2rem 0;
+
+         &>td,
+         &>th {
+            margin: 0 0.25em;
+            flex: 1;
+         }
+
+         &>th {
+            font-weight: 700;
+         }
+
+         &:nth-child(1) {
+            border-top: none;
+         }
+      }
    }
 }
