@@ -63,7 +63,7 @@ body.awi-layout {
 
          outline: none;
          border: none;
-         border-radius: 1rem;
+         border-radius: var(--border-rad-500);
 
          &:hover {
             background-color: var(--clr-neutral-400);

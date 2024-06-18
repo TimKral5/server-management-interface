@@ -1,24 +1,49 @@
 .awi-table {
+   background-color: var(--clr-neutral-300);
    width: 100%;
+   border-radius: 0.8em;
+   overflow-x: auto;
+   display: block;
 
-   &>tbody>tr {
-      display: flex;
-      margin: 0 0.5em;
-      border-top: 0.1em solid;
-      padding: 0.2rem 0;
+   &>tbody {
 
-      &>td,
-      &>th {
-         margin: 0 0.25em;
-         flex: 1;
-      }
+      display: block;
+      min-width: 100%;
+      width: max-content;
 
-      &>th {
-         font-weight: 700;
-      }
+      &>tr {
+         padding: 0.25em 0;
+         min-width: 100%;
+         width: max-content;
 
-      &:nth-child(1) {
-         border-top: none;
+         &>td,
+         &>th {
+            padding: 0.25em 0.5em;
+
+            border-left: 0.15em solid var(--clr-neutral-600);
+            width: max-content;
+         }
+
+         &>td:nth-child(1),
+         &>th:nth-child(1) {
+            border-left: none;
+         }
+
+         &>th {
+            font-weight: 700;
+         }
+
+         &>td.awi-t-number {
+            text-align: center;
+         }
+
+         &>td.awi-t-text {}
+
+         &.thead {
+            border-bottom: 0.15em solid var(--clr-neutral-600);
+            padding-bottom: 0.4em;
+            margin-bottom: 0.2em;
+         }
       }
    }
 }

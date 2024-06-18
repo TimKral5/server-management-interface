@@ -4,8 +4,16 @@
    --clr-neutral-300: rgb(40 40 40);
    --clr-neutral-400: rgb(45 45 45);
    --clr-neutral-500: rgb(55 55 55);
+   --clr-neutral-600: rgb(75 75 75);
    --clr-neutral-800: rgb(230 230 230);
    --clr-neutral-900: rgb(255 255 255);
+
+   --clr-success: rgb(0 200 0);
+   --clr-warning: rgb(210 210 0);
+   --clr-danger: rgb(250 0 0);
+   --clr-disabled: rgb(150 150 150);
+
+   --border-rad-500: 0.8em;
 }
 
 body {

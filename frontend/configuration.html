@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+
+   <link rel="stylesheet" href="style.css">
+   <script src="script.js" defer></script>
+</head>
+
+<body class="awi-layout">
+   <header>
+      <button onclick="toggleNav()"></button>
+      <div class="logo"><a href="./dashboard.html">Server Management Interface</a></div>
+   </header>
+   <nav>
+      <a href="./dashboard.html">Dashboard</a>
+      <a href="./terminal.html">Terminal</a>
+      <a href="./services.html">Services</a>
+      <a href="./containers.html">Containers</a>
+      <a href="./monitoring.html">Monitoring</a>
+      <a href="./configuration.html" class="active">Configuration</a>
+      <a href="./settings.html">Settings</a>
+   </nav>
+   <main>
+      <h1>Configuration</h1>
+      <table class="awi-table">
+         <tbody class="configuration-grid">
+            <tr class="thead">
+               <th>Service</th>
+               <th>Description</th>
+               <th>Actions</th>
+            </tr>
+
+            <tr>
+               <td class="awi-t-text">Crontab</td>
+               <td class="awi-t-text"></td>
+               <td class="awi-t-text"></td>
+            </tr>
+            <tr>
+               <td class="awi-t-text">Language</td>
+               <td class="awi-t-text"></td>
+               <td class="awi-t-text"></td>
+            </tr>
+            <tr>
+               <td class="awi-t-text">Network</td>
+               <td class="awi-t-text"></td>
+               <td class="awi-t-text"></td>
+            </tr>
+            <tr>
+               <td class="awi-t-text">NGinX</td>
+               <td class="awi-t-text"></td>
+               <td class="awi-t-text"></td>
+            </tr>
+            <tr>
+               <td class="awi-t-text">SSH</td>
+               <td class="awi-t-text"></td>
+               <td class="awi-t-text"></td>
+            </tr>
+         </tbody>
+      </table>
+   </main>
+
+   <style>
+      tbody.configuration-grid>tr {
+         display: grid;
+         grid-template-columns: 10em auto 10em;
+      }
+      
+      tbody.configuration-grid>tr>* {
+         min-width: 100%;
+      }
+
+      tbody.configuration-grid>tr>*:nth-child(1),
+      tbody.configuration-grid>tr>*:nth-child(3) {
+         text-align: center;
+      }
+   </style>
+</body>
+
+</html>
