@@ -26,41 +26,75 @@
    </nav>
    <main>
       <h1>Configuration</h1>
-      <table class="awi-table">
-         <tbody class="configuration-grid">
-            <tr class="thead">
-               <th>Service</th>
-               <th>Description</th>
-               <th>Actions</th>
-            </tr>
 
-            <tr>
-               <td class="awi-t-text">Crontab</td>
-               <td class="awi-t-text"></td>
-               <td class="awi-t-text"></td>
-            </tr>
-            <tr>
-               <td class="awi-t-text">Language</td>
-               <td class="awi-t-text"></td>
-               <td class="awi-t-text"></td>
-            </tr>
-            <tr>
-               <td class="awi-t-text">Network</td>
-               <td class="awi-t-text"></td>
-               <td class="awi-t-text"></td>
-            </tr>
-            <tr>
-               <td class="awi-t-text">NGinX</td>
-               <td class="awi-t-text"></td>
-               <td class="awi-t-text"></td>
-            </tr>
-            <tr>
-               <td class="awi-t-text">SSH</td>
-               <td class="awi-t-text"></td>
-               <td class="awi-t-text"></td>
-            </tr>
-         </tbody>
-      </table>
+      <ul class="awi-grid">
+         <li class="awi-panel" style="height: 10rem;">
+            <span>Crontab</span>
+            <table class="awi-panel-table">
+               <tbody>
+                  <tr>
+                     <th>Category</th>
+                     <th>Actions</th>
+                  </tr>
+                  <tr>
+                     <td>Cronjobs</td>
+                     <td>
+                        <a href="#" class="awi-link">New</a>,
+                        <a href="#" class="awi-link">Edit</a>
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </li>
+         <li class="awi-panel" style="height: 10rem;">
+            <span>Network</span>
+            <table class="awi-panel-table">
+               <tbody>
+                  <tr>
+                     <th>Category</th>
+                     <th>Actions</th>
+                  </tr>
+                  <tr>
+                     <td>Interfaces</td>
+                     <td><a href="#" class="awi-link">Edit</a></td>
+                  </tr>
+               </tbody>
+            </table>
+         </li>
+         <li class="awi-panel" style="height: 10rem;">
+            <span>NGinX</span>
+            <table class="awi-panel-table">
+               <tbody>
+                  <tr>
+                     <th>Category</th>
+                     <th>Actions</th>
+                  </tr>
+                  <tr>
+                     <td>Rules</td>
+                     <td>
+                        <a href="#" class="awi-link">New</a>,
+                        <a href="#" class="awi-link">Edit</a>
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </li>
+         <li class="awi-panel" style="height: 10rem;">
+            <span>SSH</span>
+            <table class="awi-panel-table">
+               <tbody>
+                  <tr>
+                     <th>Category</th>
+                     <th>Actions</th>
+                  </tr>
+                  <tr>
+                     <td>Credentials</td>
+                     <td><a href="#" class="awi-link">Edit</a></td>
+                  </tr>
+               </tbody>
+            </table>
+         </li>
+      </ul>
    </main>
 
    <style>
