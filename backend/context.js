@@ -1,15 +1,20 @@
 import _express from "express";
 import _si from "systeminformation";
+import _apidoc from "./apidoc.js";
+import config from "./config.js";
 
 export class RouteContext {
-   /** @type {express.Express} */
+   /** @type {_express.Express} */
    app;
+   /** @type {config} */
+   config;
 
    /**
     * @param {express.Express} app 
     */
    constructor(app) {
       this.app = app;
+      this.config = config;
    }
 }
 
@@ -20,6 +25,5 @@ export function express() {
    return _express();
 }
 
-export function si() {
-   return _si;
-}
+export const si = _si;
+export const apidoc = _apidoc;
