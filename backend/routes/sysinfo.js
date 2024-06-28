@@ -1,5 +1,13 @@
 
-import { RouteContext, express, si, apidoc } from "../context.js";
+import {
+   RouteContext,
+   express,
+   si,
+   apidoc,
+   respond,
+   db,
+   responder
+} from "../context.js";
 const app = express();
 
 
@@ -68,35 +76,46 @@ function decodeInfoType(obj, type) {
 }
 
 app.get("/static", async (req, res) => {
-   res.header("Content-Type", "application/json");
-   res.status(200);
-   res.send(JSON.stringify(staticInfo));
+   if (await responder.validateSession(req, res))
+      return;
+
+
+   respond(res, 200, {
+      content: JSON.stringify(staticInfo)
+   });
 });
 
 app.get("/dynamic", async (req, res) => {
-   res.header("Content-Type", "application/json");
-   res.status(200);
-   res.send(JSON.stringify(dynamicInfo));
+   if (await responder.validateSession(req, res))
+      return;
+
+   respond(res, 200, {
+      content: JSON.stringify(dynamicInfo)
+   });
 });
 
-app.get("/static/:type", (req, res) => {
-   const type = req.params.type;
+app.get("/static/:type", async (req, res) => {
+   if (await responder.validateSession(req, res))
+      return;
 
+   const type = req.params.type;
    const result = decodeInfoType(staticInfo, type);
 
-   res.header("Content-Type", "application/json");
-   res.status(200);
-   res.send(JSON.stringify(result));
+   respond(res, 200, {
+      content: JSON.stringify(result)
+   });
 });
 
-app.get("/dynamic/:type", (req, res) => {
-   const type = req.params.type;
+app.get("/dynamic/:type", async (req, res) => {
+   if (await responder.validateSession(req, res))
+      return;
 
+   const type = req.params.type;
    const result = decodeInfoType(dynamicInfo, type);
 
-   res.header("Content-Type", "application/json");
-   res.status(200);
-   res.send(JSON.stringify(result));
+   respond(res, 200, {
+      content: JSON.stringify(result)
+   });
 });
 
 /**
@@ -109,12 +128,12 @@ export default async function hook(route, _ctx) {
    staticInfo = await getStaticInfo();
    setInterval(async () =>
       staticInfo = await getStaticInfo(),
-   ctx.config.intervals.fetch_static_info);
+      ctx.config.intervals.fetch_static_info);
 
    dynamicInfo = await getDynamicInfo();
    setInterval(async () =>
       dynamicInfo = await getDynamicInfo(),
-   ctx.config.intervals.fetch_dynamic_info);
+      ctx.config.intervals.fetch_dynamic_info);
 
    apidoc.defineGroup("Systeminformation", route);
 

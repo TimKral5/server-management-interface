@@ -1,4 +1,5 @@
 #!/bin/node
+
 import express from "express";
 import { RouteContext, apidoc } from "./context.js";
 import r_auth from "./routes/auth.js";
