@@ -99,6 +99,5 @@ Object.entries(pages).forEach(page => {
    fs.writeFileSync(outFile, content);
 });
 
-console.log(config.assets.files[0]);
 config.assets.files
    .forEach(file => fs.copyFileSync(file, `${config.out.dir}${file.split("/")[file.split("/").length - 1]}`));
