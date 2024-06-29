@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>{{site-shortname}} - {{page-name}}</title>
+
+   <link rel="stylesheet" href="{{site-assets}}/style.css">
+   <script src="{{site-assets}}/script.js" defer></script>
+</head>
+
+<body class="awi-layout">
+   <header>
+      <button onclick="toggleNav()"></button>
+      <div class="logo" aria-hidden="true"><a href="{{site-root}}/dashboard.html">{{site-name}}</a></div>
+   </header>
+   <nav>
+      <ul>
+         <li class="{{id:dashboard}}"><a href="{{site-root}}/dashboard.html">Dashboard</a></li>
+         <li {{disabled}} class="{{id:terminal}}"><a href="{{site-root}}/terminal.html">Terminal</a></li>
+         <li class="{{id:services}}"><a href="{{site-root}}/services.html">Services</a></li>
+         <li class="{{id:containers}}"><a href="{{site-root}}/containers.html">Containers</a></li>
+         <li {{disabled}} class="{{id:monitoring}}"><a href="{{site-root}}/monitoring.html">Monitoring</a></li>
+         <li class="{{id:configuration}}"><a href="{{site-root}}/configuration.html">Configuration</a></li>
+         <li {{disabled}} class="{{id:settings}}"><a href="{{site-root}}/settings.html">Settings</a></li>
+         <li {{disabled}} class="{{id:test}}"><a href="{{site-root}}/test.html">Test</a></li>
+      </ul>
+   </nav>
+   <article>
+      <h1 aria-hidden="true">{{page-name}}</h1>
+      <hr class="awi-sr-only">
+      {{page-content}}
+   </article>
+   <footer>
+      <a href="{{site-root}}/contact.html" class="awi-link awi-fg-disabled">Do you need help? Contact us!</a>
+   </footer>
+</body>
+
+</html>

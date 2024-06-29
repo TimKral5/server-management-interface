@@ -3,8 +3,13 @@
    border-radius: var(--border-rad-500);
    background-color: var(--clr-neutral-300);
 
-   &>span {
+   &>span,
+   &>.title {
       display: block;
+      font-size: 1em;
+      
+      margin: 0;
+      padding: 0;
 
       border: 0 solid;
       border-top-left-radius: var(--border-rad-500);
@@ -26,6 +31,7 @@
 
    &>table.awi-panel-table {
       width: 100%;
+      margin-bottom: 0.75em;
 
       &>tbody>tr {
          display: flex;
@@ -37,6 +43,10 @@
          &>th {
             margin: 0 0.25em;
             flex: 1;
+         }
+
+         &>th {
+            text-align: left;
          }
 
          &>th {

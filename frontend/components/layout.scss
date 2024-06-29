@@ -1,95 +1,123 @@
 body.awi-layout {
-   display: grid;
-   grid-template-columns: 20rem auto;
-   grid-template-rows: 5rem auto;
-   overflow-y: auto;
-
-   &>header {
-      grid-column: 1/1;
-      grid-row: 1/1;
-      background-color: var(--clr-neutral-200);
-      border-bottom: solid var(--clr-neutral-800) 0.15rem;
-
-      font-size: 1.25rem;
+   & {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
 
       display: grid;
-      grid-template-columns: auto;
+      grid-template-columns: 20rem auto;
+      grid-template-rows: 5rem auto min-content;
+      overflow-y: auto;
 
-      user-select: none;
-
-      &>div {
-         height: min-content;
-         position: relative;
-         top: 50%;
-         transform: translateY(-50%);
-
-         text-align: center;
+      &>header,
+      &>nav,
+      &>footer {
+         background-color: var(--clr-neutral-200);
       }
 
-      &>button {
-         position: relative;
-         top: 50%;
-         transform: translateY(-50%);
-
-         width: 100%;
-         display: none;
-
-         margin-left: 0.5rem;
-
-         aspect-ratio: 1/1;
-      }
-   }
-
-   &>nav {
-      grid-column: 1/1;
-      grid-row: 2/2;
-      background-color: var(--clr-neutral-200);
-      padding-top: 1rem;
-      overflow-x: hidden;
-      user-select: none;
-
-      &>* {
-         width: 30rem;
-         max-width: calc(100% - 2rem);
+      &>header {
+         grid-column: 1/1;
+         grid-row: 1/1;
+         border-bottom: solid var(--clr-neutral-800) 0.15rem;
 
          font-size: 1.25rem;
-         padding: 0.4rem 0;
-         margin: 0.35rem auto;
 
-         display: block;
-         text-align: center;
+         display: grid;
+         grid-template-columns: auto;
 
-         background-color: var(--clr-neutral-300);
+         user-select: none;
 
-         outline: none;
-         border: none;
-         border-radius: var(--border-rad-500);
+         &>div {
+            height: min-content;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
 
-         &:hover {
-            background-color: var(--clr-neutral-400);
-            cursor: pointer;
+            text-align: center;
          }
 
-         &.active {
-            background-color: var(--clr-neutral-500);
+         &>button {
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+
+            width: 100%;
+            display: none;
+
+            margin-left: 0.5rem;
+
+            aspect-ratio: 1/1;
          }
       }
-   }
 
-   &>main {
-      grid-column: 2/2;
-      grid-row: 1/span 2;
-      overflow-y: auto;
-      padding: 0 2rem;
-
-      &>h1 {
+      &>nav {
+         grid-column: 1/1;
+         grid-row: 2/2;
+         padding-top: 1rem;
+         overflow-x: hidden;
          user-select: none;
+
+         &>ul>* {
+            width: 30rem;
+            max-width: calc(100% - 2rem);
+
+            font-size: 1.25rem;
+            margin: 0.35rem auto;
+
+            display: block;
+            text-align: center;
+
+            background-color: var(--clr-neutral-300);
+
+            outline: none;
+            border: none;
+            border-radius: var(--border-rad-500);
+
+            &:hover {
+               background-color: var(--clr-neutral-400);
+               cursor: pointer;
+            }
+
+            &.active {
+               background-color: var(--clr-neutral-500);
+            }
+
+            &>* {
+               display: block;
+               width: 100%;
+               padding: 0.4rem 0;
+            }
+
+            &[disabled] {
+               display: none;
+            }
+         }
+      }
+
+      &>article {
+         grid-column: 2/2;
+         grid-row: 1/span 2;
+         overflow-y: auto;
+         padding: 0 2rem;
+
+         &>h1 {
+            user-select: none;
+         }
+      }
+
+      &>footer {
+         grid-column: 1/1;
+         grid-row: 3/3;
+         text-align: center;
+         padding-bottom: 1rem;
       }
    }
 }
 
 @media screen and (max-width: 1100px) {
-   body.awi-layout {
+   body.awi-layout>article {
       grid-template-rows: 3rem auto;
       grid-template-columns: 0 auto;
 
@@ -106,16 +134,20 @@ body.awi-layout {
          }
       }
 
-      &>main {
+      &>article {
          grid-column: 2/2;
          grid-row: 2/2;
       }
+
+      &>footer {
+         display: none;
+      }
    }
 
-   body.awi-layout.show-nav {
+   body.awi-layout.show-nav>article {
       grid-template-columns: auto 0;
 
-      &>main {
+      &>article {
          display: none;
       }
    }

@@ -1,0 +1,28 @@
+Login Process
+ - POST /api/v0/auth/challenge
+   Client
+    - //
+   Server
+    - //
+   Client
+    - Retreive Challenge ID and Token
+ - POST /api/v0/auth/login
+   Client
+    - Provide username and password (salted and hashed)
+    - Provide Challenge ID, too
+   Server
+    - Validate Login Credentials
+    - Create Session
+    - Return Session ID and Token
+   Client
+    - //
+
+API Requests
+ - GET, POST, ... /api/v0/...
+   Client
+    - Provide Request Data
+    - Provide Session ID and Token
+   Server
+    - //
+   Client
+    - //

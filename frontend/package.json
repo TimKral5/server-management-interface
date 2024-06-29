@@ -1,18 +1,19 @@
 {
-   "name": "frontend",
-   "version": "1.0.0",
-   "description": "",
-   "main": "index.js",
-   "scripts": {
-      "build": "clear && sass components/__index.scss style.css",
-      "start": "npm run build && serve",
-      "test": "echo \"Error: no test specified\" && exit 1"
-   },
-   "keywords": [],
-   "author": "",
-   "license": "ISC",
-   "dependencies": {
-      "sass": "^1.77.5",
-      "serve": "^14.2.3"
-   }
+  "name": "frontend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "clear && rm -rf out/ && sass components/__index.scss out/style.css && node index.js",
+    "start": "npm run build && serve out/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "sass": "^1.77.5",
+    "serve": "^14.2.3"
+  },
+  "devDependencies": {},
+  "description": ""
 }

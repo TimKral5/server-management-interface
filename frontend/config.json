@@ -1,0 +1,145 @@
+{
+   "out": {
+      "dir": "./out/"
+   },
+   "prefixes": {
+      "site": "site-",
+      "page": "page-"
+   },
+   "site": {
+      "meta": {
+         "name": "Server Management Interface",
+         "shortname": "SMI"
+      },
+      "templates": {
+         "tab": "./templates/tab.html"
+      }
+   },
+   "pages": [
+      {
+         "id": "test",
+         "meta": {
+            "name": "Test"
+         },
+         "file": "./data/test.htm",
+         "endpoint": "/test.html",
+         "template": "tab"
+      },
+      {
+         "id": "dashboard",
+         "meta": {
+            "name": "Dashboard"
+         },
+         "file": "./data/dashboard.htm",
+         "endpoint": "/dashboard.html",
+         "template": "tab"
+      },
+      {
+         "id": "configuration",
+         "meta": {
+            "name": "Configuration"
+         },
+         "file": "./data/configuration.htm",
+         "endpoint": "/configuration.html",
+         "template": "tab"
+      },
+      {
+         "id": "contact",
+         "meta": {
+            "name": "Contact"
+         },
+         "file": "./data/contact.htm",
+         "endpoint": "/contact.html",
+         "template": "tab"
+      },
+      {
+         "id": "containers",
+         "meta": {
+            "name": "Containers"
+         },
+         "file": "./data/containers.htm",
+         "endpoint": "/containers.html",
+         "template": "tab"
+      },
+      {
+         "id": "monitoring",
+         "meta": {
+            "name": "Monitoring"
+         },
+         "file": "./data/monitoring.htm",
+         "endpoint": "/monitoring.html",
+         "template": "tab"
+      },
+      {
+         "id": "services",
+         "meta": {
+            "name": "Services"
+         },
+         "file": "./data/services.htm",
+         "endpoint": "/services.html",
+         "template": "tab"
+      },
+      {
+         "id": "settings",
+         "meta": {
+            "name": "Settings"
+         },
+         "file": "./data/settings.htm",
+         "endpoint": "/settings.html",
+         "template": "tab"
+      },
+      {
+         "id": "terminal",
+         "meta": {
+            "name": "Terminal"
+         },
+         "file": "./data/terminal.htm",
+         "endpoint": "/terminal.html",
+         "template": "tab"
+      },
+
+      {
+         "id": "owncloud-details",
+         "meta": {
+            "name": "Details - Owncloud"
+         },
+         "file": "./data/containers/details.htm",
+         "endpoint": "/containers/details/owncloud.html",
+         "template": "tab"
+      },
+      {
+         "id": "mysql-details",
+         "meta": {
+            "name": "Details - MySQL"
+         },
+         "file": "./data/containers/details.htm",
+         "endpoint": "/containers/details/mysql.html",
+         "template": "tab"
+      },
+      {
+         "id": "custom1-details",
+         "meta": {
+            "name": "Details - Custom 1"
+         },
+         "file": "./data/containers/details.htm",
+         "endpoint": "/containers/details/custom-1.html",
+         "template": "tab"
+      },
+      {
+         "id": "custom2-details",
+         "meta": {
+            "name": "Details - Custom 2"
+         },
+         "file": "./data/containers/details.htm",
+         "endpoint": "/containers/details/custom-2.html",
+         "template": "tab"
+      }
+   ],
+   "assets": {
+      "path": "/assets",
+      "aliases": {
+         
+      },
+      "files": []
+   }
+}
