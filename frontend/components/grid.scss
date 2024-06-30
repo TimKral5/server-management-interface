@@ -1,0 +1,16 @@
+.awi-grid {
+   --flex-min: 20rem;
+   --flex-max-ratio: 2;
+
+   display: flex;
+   flex-wrap: wrap;
+
+   &>* {
+      min-width: var(--flex-min);
+      max-width: calc(var(--flex-min) * var(--flex-max-ratio));
+      width: min-content;
+      flex-grow: 1;
+      flex: 1;
+      margin: 0.2em 0.2em;
+   }
+}

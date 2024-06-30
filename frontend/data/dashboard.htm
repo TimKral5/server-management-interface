@@ -1,4 +1,4 @@
-<div class="awi-datagrid">
+<div class="dashboard awi-grid">
    <div class="awi-panel" style="height: 10rem;">
       <h2 class="title">CPU</h2>
       <table class="awi-panel-table">
@@ -44,7 +44,7 @@
          </tbody>
       </table>
    </div>
-   <div class="awi-panel" style="height: 10rem;">
+   <div class="awi-panel disks-panel" style="height: 10rem;">
       <h2 class="title">Disks</h2>
       <table class="awi-panel-table">
          <tbody>
@@ -76,11 +76,11 @@
             </tr>
             <tr>
                <td>Warnings</td>
-               <td>0</td>
+               <td class="awi-fg-warning">0</td>
             </tr>
             <tr>
                <td>Errors</td>
-               <td>0</td>
+               <td class="awi-fg-danger">0</td>
             </tr>
          </tbody>
       </table>
@@ -95,11 +95,11 @@
             </tr>
             <tr>
                <td>Warnings</td>
-               <td>0</td>
+               <td class="awi-fg-warning">0</td>
             </tr>
             <tr>
                <td>Errors</td>
-               <td>0</td>
+               <td class="awi-fg-danger">0</td>
             </tr>
          </tbody>
       </table>
@@ -124,3 +124,13 @@
       </table>
    </div>
 </div>
+
+<style>
+   .dashboard>* {
+      --flex-min: 18em;
+   }
+
+   .disks-panel>table>tbody>tr>*:nth-child(1) {
+      flex: 0.7 !important;
+   }
+</style>
