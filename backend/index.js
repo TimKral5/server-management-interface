@@ -5,10 +5,14 @@ import { RouteContext, apidoc } from "./context.js";
 import r_auth from "./routes/auth.js";
 import r_sysinfo from "./routes/sysinfo.js";
 import r_sysconfig from "./routes/sysconfig.js";
+import cors from "cors";
+
 const BASE = "/api/v0";
 
 const app = express();
 const ctx = new RouteContext(app);
+
+app.use(cors());
 
 app.get(`${BASE}/routes`, (req, res) => {
    res.header("Content-Type", "application/json");
@@ -21,7 +25,7 @@ app.get(`${BASE}/routes`, (req, res) => {
    await r_sysinfo(`${BASE}/sys/info`, ctx);
    await r_sysconfig(`${BASE}/sys/config`, ctx);
 
-   app.listen(3000, () => {
+   app.listen(3005, () => {
       console.log("Server running...");
    });
 })();

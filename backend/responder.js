@@ -7,6 +7,7 @@ import { db } from "./context.js";
  */
 export function respond(res, status, {content = "NULL", details = undefined} = {}) {
    res.header("Content-Type", "application/json");
+
    res.status(status);
    switch (status) {
       case 200:
@@ -27,7 +28,7 @@ export function respond(res, status, {content = "NULL", details = undefined} = {
  * @param {express.Response} res 
  */
 export async function validateSession(req, res) {
-   const sessionToken = req.query.st;
+   const sessionToken = req.header("X-SESSION-TOKEN");
 
    if (!(await db.validateSession(sessionToken))) {
       respond(res, 401, {

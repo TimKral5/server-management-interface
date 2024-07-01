@@ -1,0 +1,34 @@
+{
+   "name": "smi",
+   "version": "1.0.0",
+   "description": "Server Management Interface",
+   "main": "index.js",
+   "scripts": {
+      "_build-styles": "cd styles && sass components/__index.scss out/style.css",
+      "_build-styles-tests": "cd styles && node index.js",
+
+      "_styles-dev": "serve out/styles/",
+      "_backend-dev": "node backend/index.js"
+   },
+   "repository": {
+      "type": "git",
+      "url": "git+https://github.com/TimKral5/server-management-interface.git"
+   },
+   "keywords": [],
+   "author": "",
+   "license": "ISC",
+   "bugs": {
+      "url": "https://github.com/TimKral5/server-management-interface/issues"
+   },
+   "homepage": "https://github.com/TimKral5/server-management-interface#readme",
+   "dependencies": {
+      "cors": "^2.8.5",
+      "express": "^4.19.2",
+      "mariadb": "^3.3.1",
+      "sass": "^1.77.6",
+      "serve": "^14.2.3",
+      "systeminformation": "^5.22.11",
+      "uuid": "^10.0.0",
+      "xmlhttprequest": "^1.8.0"
+   }
+}
