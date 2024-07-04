@@ -12,7 +12,7 @@ export class RouteContext {
    config;
 
    /**
-    * @param {express.Express} app 
+    * @param {_express.Express} app 
     */
    constructor(app) {
       this.app = app;

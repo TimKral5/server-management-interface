@@ -6,9 +6,9 @@
    "scripts": {
       "_build-styles": "cd styles && sass components/__index.scss out/style.css",
       "_build-styles-tests": "cd styles && node index.js",
-
       "_styles-dev": "serve out/styles/",
-      "_backend-dev": "node backend/index.js"
+      "_backend-dev": "node backend/index.js",
+      "_test-backend": "node backend/test/node.js"
    },
    "repository": {
       "type": "git",
@@ -29,6 +29,7 @@
       "serve": "^14.2.3",
       "systeminformation": "^5.22.11",
       "uuid": "^10.0.0",
-      "xmlhttprequest": "^1.8.0"
+      "xmlhttprequest": "^1.8.0",
+      "yaml": "^2.4.5"
    }
 }

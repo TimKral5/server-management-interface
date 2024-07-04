@@ -13,7 +13,7 @@ out/lib/: out/
 _build-lib-reset:
 	rm -rf out/lib/
 _build-lib: _build-lib-reset out/lib/
-	cp backend/client/api.js out/lib/api.js
+	cp backend/test/api.js out/lib/api.js
 
 _build-styles-reset:
 	rm -rf out/styles/
@@ -34,3 +34,7 @@ styles-dev: build-styles-tests
 	npm run _styles-dev
 backend-dev:
 	npm run _backend-dev
+
+# Test
+test-backend:
+	npm run _test-backend

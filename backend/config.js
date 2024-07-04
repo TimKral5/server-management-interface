@@ -10,5 +10,9 @@ export default {
    database: {
       host: "localhost",
       user: "root"
+   },
+
+   paths: {
+      compose: "./containers"
    }
 };
