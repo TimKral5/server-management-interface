@@ -6,6 +6,7 @@ import r_auth from "./routes/auth.js";
 import r_sysinfo from "./routes/sysinfo.js";
 import r_sysconfig from "./routes/sysconfig.js";
 import cors from "cors";
+import { validateSession } from "./responder.js";
 
 const BASE = "/api/v0";
 
@@ -13,6 +14,13 @@ const app = express();
 const ctx = new RouteContext(app);
 
 app.use(cors());
+
+app.use(async (req, res, next) => {
+   if (!(await validateSession(req, res)))
+      return;
+   console.log("next");
+   next("route");
+});
 
 app.get(`${BASE}/routes`, (req, res) => {
    res.header("Content-Type", "application/json");

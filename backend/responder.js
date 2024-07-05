@@ -35,10 +35,10 @@ export async function validateSession(req, res) {
          details: "Invalid Session Token"
       });
 
-      return true;
+      return false;
    }
 
-   return false;
+   return true;
 }
 
 export default {

@@ -76,28 +76,18 @@ function decodeInfoType(obj, type) {
 }
 
 app.get("/static", async (req, res) => {
-   if (await responder.validateSession(req, res))
-      return;
-
-
    respond(res, 200, {
       content: JSON.stringify(staticInfo)
    });
 });
 
 app.get("/dynamic", async (req, res) => {
-   if (await responder.validateSession(req, res))
-      return;
-
    respond(res, 200, {
       content: JSON.stringify(dynamicInfo)
    });
 });
 
 app.get("/static/:type", async (req, res) => {
-   if (await responder.validateSession(req, res))
-      return;
-
    const type = req.params.type;
    const result = decodeInfoType(staticInfo, type);
 
@@ -107,9 +97,6 @@ app.get("/static/:type", async (req, res) => {
 });
 
 app.get("/dynamic/:type", async (req, res) => {
-   if (await responder.validateSession(req, res))
-      return;
-
    const type = req.params.type;
    const result = decodeInfoType(dynamicInfo, type);
 

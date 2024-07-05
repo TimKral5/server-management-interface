@@ -52,7 +52,7 @@
     * @param {number} err1 
     * @param {number} err2 
     */
-   exports.notNull = async function (name, test, err1 = -1, err2 = -2) {
+   exports.doTest = async function (name, test, err1 = -1, err2 = -2) {
 
       function resolve(pass, err = undefined) {
          console.log(`[${name}] Test => ${pass ? "Passed" : "Failed"}`);

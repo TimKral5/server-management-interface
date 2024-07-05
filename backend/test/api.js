@@ -45,6 +45,38 @@
 
    const XMLHttpRequest = use("XMLHttpRequest", { mod: "xmlhttprequest", obj: "XMLHttpRequest" });
 
+   /**
+    * 
+    * @param {string} method 
+    * @param {string} url 
+    * @param {{sessionToken: string}} param2 
+    * @returns 
+    */
+   function performReq(method, url, { sessionToken = undefined } = {}) {
+      return new Promise((res, rej) => {
+         /** @type {XMLHttpRequest} */
+         const req = new XMLHttpRequest();
+
+         req.open(method, url);
+
+         if (sessionToken)
+            req.setRequestHeader("X-SESSION-TOKEN", sessionToken);
+
+         req.send();
+         req.addEventListener("loadend",
+            () => {
+               const obj = JSON.parse(req.responseText);
+               
+               if (req.status == 200)
+                  res(obj);
+               else
+                  rej(obj);
+            }
+         );
+         req.addEventListener("error", rej);
+      });
+   }
+
    exports.SMIApi = class SMIApi {
       /** @type {string} */
       apiBase;
@@ -76,29 +108,11 @@
        * @returns {Promise<object>}
        */
       getStaticInfo(type = undefined) {
-         return new Promise((res, rej) => {
-            /** @type {XMLHttpRequest} */
-            const req = new XMLHttpRequest();
-
-            if (type)
-               req.open("GET", `${this.apiBase}/sys/info/static/${type}`);
-            else
-               req.open("GET", `${this.apiBase}/sys/info/static`);
-
-            req.setRequestHeader("X-SESSION-TOKEN", this.sessionToken);
-
-            req.send();
-            req.addEventListener("loadend",
-               () => {
-                  const obj = JSON.parse(req.responseText);
-                  
-                  if (req.status == 200)
-                     res(obj);
-                  else
-                     rej(obj);
-               }
-            );
-            req.addEventListener("error", rej);
+         let url = `${this.apiBase}/sys/info/static`;
+         if (type)
+            url += `/${type}`;
+         return performReq("GET", url, {
+            sessionToken: this.sessionToken
          });
       }
       
@@ -108,29 +122,65 @@
        * @returns {Promise<object>}
        */
       getDynamicInfo(type = undefined) {
-         return new Promise((res, rej) => {
-            /** @type {XMLHttpRequest} */
-            const req = new XMLHttpRequest();
+         let url = `${this.apiBase}/sys/info/dynamic`;
+         if (type)
+            url += `/${type}`;
+         return performReq("GET", url, {
+            sessionToken: this.sessionToken
+         });
+      }
 
-            if (type)
-               req.open("GET", `${this.apiBase}/sys/info/dynamic/${type}`);
-            else
-               req.open("GET", `${this.apiBase}/sys/info/dynamic`);
+      /**
+       * @returns {Promise<object[]>}
+       */
+      getAllComposeInstances() {
+         const url = `${this.apiBase}/sys/config/compose`;
+         return performReq("GET", url, {
+            sessionToken: this.sessionToken
+         });
+      }
 
-            req.setRequestHeader("X-SESSION-TOKEN", this.sessionToken);
+      /**
+       * @param {string} compose
+       * @returns {Promise<object>} 
+       */
+      getComposeInstance(compose) {
+         const url = `${this.apiBase}/sys/config/compose/${compose}`;
+         return performReq("GET", url, {
+            sessionToken: this.sessionToken
+         });
+      }
 
-            req.send();
-            req.addEventListener("loadend",
-               () => {
-                  const obj = JSON.parse(req.responseText);
-                  
-                  if (req.status == 200)
-                     res(obj);
-                  else
-                     rej(obj);
-               }
-            );
-            req.addEventListener("error", rej);
+      /**
+       * @param {string} compose 
+       * @param {string} container 
+       * @returns {Promise<object>} 
+       */
+      getComposeContainer(compose, container) {
+         const url = `${this.apiBase}/sys/config/compose/${compose}/${container}`;
+         return performReq("GET", url, {
+            sessionToken: this.sessionToken
+         });
+      }
+
+      /**
+       * @returns {Promise<object[]>} 
+       */
+      getAllServices() {
+         const url = `${this.apiBase}/sys/config/services`;
+         return performReq("GET", url, {
+            sessionToken: this.sessionToken
+         });
+      }
+
+      /**
+       * @param {string} service 
+       * @returns {Promise<object>} 
+       */
+      getService(service) {
+         const url = `${this.apiBase}/sys/config/services/${service}`;
+         return performReq("GET", url, {
+            sessionToken: this.sessionToken
          });
       }
    };
