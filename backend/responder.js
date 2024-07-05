@@ -2,10 +2,11 @@ import express from "express";
 import { db } from "./context.js";
 
 /**
+ * @param {express.Request} req 
  * @param {express.Response} res 
  * @param {number} status 
  */
-export function respond(res, status, { content = "NULL", details = undefined } = {}) {
+export function respond(req, res, status, { content = "NULL", details = undefined } = {}) {
    res.header("Content-Type", "application/json");
 
    res.status(status);
@@ -15,12 +16,14 @@ export function respond(res, status, { content = "NULL", details = undefined } =
             res.send(JSON.stringify(content));
          else
             res.send(content);
+         console.log(`${req.method.toUpperCase()} ${req.baseUrl} => Success`);
          break;
       default:
          res.send(JSON.stringify({
             status: status,
             details
          }));
+         console.log(`${req.method.toUpperCase()} ${req.baseUrl} => ERROR`);
          break;
    }
    res.end();

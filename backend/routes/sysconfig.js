@@ -20,7 +20,7 @@ let ctx;
 
 //#region compose
 app.get("/compose", (req, res) => {
-   respond(res, 200, {
+   respond(req, res, 200, {
       content: ContainerHandler
          .getAllComposeInstances(
             config.paths.compose
@@ -30,7 +30,7 @@ app.get("/compose", (req, res) => {
 
 app.get("/compose/:compose", (req, res) => {
    const compose = req.params["compose"];
-   respond(res, 200, {
+   respond(req, res, 200, {
       content: ContainerHandler
          .getComposeInstance(
             config.paths.compose,
@@ -42,7 +42,7 @@ app.get("/compose/:compose", (req, res) => {
 app.get("/compose/:compose/:container", (req, res) => {
    const compose = req.params["compose"];
    const container = req.params["container"];
-   respond(res, 200, {
+   respond(req, res, 200, {
       content: ContainerHandler
          .getComposeInstance(
             config.paths.compose,
@@ -55,13 +55,13 @@ app.get("/compose/:compose/:container", (req, res) => {
 
 //#region services
 app.get("/services", async (req, res) => {
-   respond(res, 200, {
+   respond(req, res, 200, {
       content: await ServiceHandler.getAllServices()
    });
 });
 
 app.get("/services/:service", async (req, res) => {
-   respond(res, 200, {
+   respond(req, res, 200, {
       content: (await ServiceHandler.getService(req.params.service)).export
    });
 });
@@ -69,7 +69,7 @@ app.get("/services/:service", async (req, res) => {
 app.put("/services/:service/stop", async (req, res) => {
    const _res = (await ServiceHandler.getService(req.params.service)).stop();
 
-   respond(res, 200, {
+   respond(req, res, 200, {
       content: {}
    });
 });
@@ -77,7 +77,7 @@ app.put("/services/:service/stop", async (req, res) => {
 app.put("/services/:service/start", async (req, res) => {
    const _res = (await ServiceHandler.getService(req.params.service)).start();
 
-   respond(res, 200, {
+   respond(req, res, 200, {
       content: {}
    });
 });
@@ -85,7 +85,7 @@ app.put("/services/:service/start", async (req, res) => {
 app.put("/services/:service/enable", async (req, res) => {
    const _res = (await ServiceHandler.getService(req.params.service)).enable();
 
-   respond(res, 200, {
+   respond(req, res, 200, {
       content: {}
    });
 });
@@ -93,7 +93,7 @@ app.put("/services/:service/enable", async (req, res) => {
 app.put("/services/:service/disable", async (req, res) => {
    const _res = (await ServiceHandler.getService(req.params.service)).disable();
 
-   respond(res, 200, {
+   respond(req, res, 200, {
       content: {}
    });
 });

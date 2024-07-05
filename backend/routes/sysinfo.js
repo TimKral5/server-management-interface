@@ -76,13 +76,13 @@ function decodeInfoType(obj, type) {
 }
 
 app.get("/static", async (req, res) => {
-   respond(res, 200, {
+   respond(req, res, 200, {
       content: JSON.stringify(staticInfo)
    });
 });
 
 app.get("/dynamic", async (req, res) => {
-   respond(res, 200, {
+   respond(req, res, 200, {
       content: JSON.stringify(dynamicInfo)
    });
 });
@@ -91,7 +91,7 @@ app.get("/static/:type", async (req, res) => {
    const type = req.params.type;
    const result = decodeInfoType(staticInfo, type);
 
-   respond(res, 200, {
+   respond(req, res, 200, {
       content: JSON.stringify(result)
    });
 });
@@ -100,7 +100,7 @@ app.get("/dynamic/:type", async (req, res) => {
    const type = req.params.type;
    const result = decodeInfoType(dynamicInfo, type);
 
-   respond(res, 200, {
+   respond(req, res, 200, {
       content: JSON.stringify(result)
    });
 });

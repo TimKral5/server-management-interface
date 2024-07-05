@@ -227,5 +227,34 @@
             sessionToken: this.sessionToken
          });
       }
+
+      getAllBackupConfigurations() {
+         const url = `${this.apiBase}/sys/backup`;
+         return performReq("GET", url, {
+            sessionToken: this.sessionToken
+         });
+      }
+
+      /**
+       * @param {string} config 
+       * @returns 
+       */
+      getBackupConfiguration(config) {
+         const url = `${this.apiBase}/sys/backup/${config}`;
+         return performReq("GET", url, {
+            sessionToken: this.sessionToken
+         });
+      }
+
+      /**
+       * @param {string} config 
+       * @returns 
+       */
+      createBackup(config) {
+         const url = `${this.apiBase}/sys/backup/${config}`;
+         return performReq("POST", url, {
+            sessionToken: this.sessionToken
+         });
+      }
    };
 });

@@ -14,5 +14,14 @@ export default {
 
    paths: {
       compose: "./containers"
+   },
+
+   backup: {
+      dir: "backups",
+      configurations: {
+         system: [
+            "./containers"
+         ]
+      }
    }
 };

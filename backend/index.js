@@ -5,8 +5,11 @@ import { RouteContext, apidoc } from "./context.js";
 import r_auth from "./routes/auth.js";
 import r_sysinfo from "./routes/sysinfo.js";
 import r_sysconfig from "./routes/sysconfig.js";
+import r_backup from "./routes/backup.js";
 import cors from "cors";
 import { validateSession } from "./responder.js";
+
+import { } from "./classes/index.js";
 
 const BASE = "/api/v0";
 
@@ -31,6 +34,7 @@ app.get(`${BASE}/routes`, (req, res) => {
    await r_auth(`${BASE}/auth`, ctx);
    await r_sysinfo(`${BASE}/sys/info`, ctx);
    await r_sysconfig(`${BASE}/sys/config`, ctx);
+   await r_backup(`${BASE}/sys/backup`, ctx);
 
    app.listen(3005, () => {
       console.log("Server running...");

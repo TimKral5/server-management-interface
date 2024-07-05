@@ -22,6 +22,7 @@
    },
    "homepage": "https://github.com/TimKral5/server-management-interface#readme",
    "dependencies": {
+      "archiver": "^7.0.1",
       "cors": "^2.8.5",
       "express": "^4.19.2",
       "mariadb": "^3.3.1",
