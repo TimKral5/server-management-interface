@@ -18,7 +18,6 @@ app.use(cors());
 app.use(async (req, res, next) => {
    if (!(await validateSession(req, res)))
       return;
-   console.log("next");
    next("route");
 });
 

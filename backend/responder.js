@@ -5,13 +5,16 @@ import { db } from "./context.js";
  * @param {express.Response} res 
  * @param {number} status 
  */
-export function respond(res, status, {content = "NULL", details = undefined} = {}) {
+export function respond(res, status, { content = "NULL", details = undefined } = {}) {
    res.header("Content-Type", "application/json");
 
    res.status(status);
    switch (status) {
       case 200:
-         res.send(content);
+         if (typeof (content) == "string")
+            res.send(JSON.stringify(content));
+         else
+            res.send(content);
          break;
       default:
          res.send(JSON.stringify({

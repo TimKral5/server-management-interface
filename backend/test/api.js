@@ -66,7 +66,7 @@
          req.addEventListener("loadend",
             () => {
                const obj = JSON.parse(req.responseText);
-               
+
                if (req.status == 200)
                   res(obj);
                else
@@ -115,7 +115,7 @@
             sessionToken: this.sessionToken
          });
       }
-      
+
       /**
        * @param {(data: object) => void} cb 
        * @param {string | undefined} type 
@@ -180,6 +180,50 @@
       getService(service) {
          const url = `${this.apiBase}/sys/config/services/${service}`;
          return performReq("GET", url, {
+            sessionToken: this.sessionToken
+         });
+      }
+
+      /**
+       * @param {string} service 
+       * @returns {Promise<object>} 
+       */
+      stopService(service) {
+         const url = `${this.apiBase}/sys/config/services/${service}/stop`;
+         return performReq("PUT", url, {
+            sessionToken: this.sessionToken
+         });
+      }
+
+      /**
+       * @param {string} service 
+       * @returns {Promise<object>} 
+       */
+      startService(service) {
+         const url = `${this.apiBase}/sys/config/services/${service}/start`;
+         return performReq("PUT", url, {
+            sessionToken: this.sessionToken
+         });
+      }
+
+      /**
+       * @param {string} service 
+       * @returns {Promise<object>} 
+       */
+      enableService(service) {
+         const url = `${this.apiBase}/sys/config/services/${service}/enable`;
+         return performReq("PUT", url, {
+            sessionToken: this.sessionToken
+         });
+      }
+
+      /**
+       * @param {string} service 
+       * @returns {Promise<object>} 
+       */
+      disableService(service) {
+         const url = `${this.apiBase}/sys/config/services/${service}/disable`;
+         return performReq("PUT", url, {
             sessionToken: this.sessionToken
          });
       }

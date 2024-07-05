@@ -65,6 +65,38 @@ app.get("/services/:service", async (req, res) => {
       content: (await ServiceHandler.getService(req.params.service)).export
    });
 });
+
+app.put("/services/:service/stop", async (req, res) => {
+   const _res = (await ServiceHandler.getService(req.params.service)).stop();
+
+   respond(res, 200, {
+      content: {}
+   });
+});
+
+app.put("/services/:service/start", async (req, res) => {
+   const _res = (await ServiceHandler.getService(req.params.service)).start();
+
+   respond(res, 200, {
+      content: {}
+   });
+});
+
+app.put("/services/:service/enable", async (req, res) => {
+   const _res = (await ServiceHandler.getService(req.params.service)).enable();
+
+   respond(res, 200, {
+      content: {}
+   });
+});
+
+app.put("/services/:service/disable", async (req, res) => {
+   const _res = (await ServiceHandler.getService(req.params.service)).disable();
+
+   respond(res, 200, {
+      content: {}
+   });
+});
 //#endregion
 
 /**
