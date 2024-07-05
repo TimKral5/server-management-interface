@@ -8,7 +8,7 @@ input.awi-input:not([type="file"],
    color: var(--clr-neutral-900);
    font-size: 1em;
    padding: 0.25em 0.5em;
-   border: 0px solid;
+   border: 0 solid;
    border-radius: 0.5em;
 
    label:has(+&) {
@@ -17,7 +17,7 @@ input.awi-input:not([type="file"],
       color: var(--clr-neutral-900);
       font-size: 1em;
       padding: 0.25em 0.5em;
-      border: 0px solid;
+      border: 0 solid;
       border-radius: 0.5em 0 0 0.5em;
    }
 
@@ -33,7 +33,7 @@ input.awi-input[type="submit"] {
    color: var(--clr-neutral-900);
    font-size: 1em;
    padding: 0.25em 0.5em;
-   border: 0px solid;
+   border: 0 solid;
    border-radius: 0.5em;
 
    &:hover {

@@ -102,6 +102,7 @@ body.awi-layout {
       padding: 0 2rem;
 
       &>h1 {
+         font-size: 2rem;
          user-select: none;
       }
    }
@@ -153,6 +154,10 @@ body.awi-layout {
    @media screen and (max-width: 500px) {
       &>article {
          padding: 0 1rem;
+
+         &>h1 {
+            font-size: 1.8rem;
+         }
       }
    }
 }
