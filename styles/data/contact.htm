@@ -1,8 +1,22 @@
-<label>test</label>
-<input class="awi-input" type="email" name="mail" id="">
-<form action="" class="awi-form">
-   <label>test</label>
-   <input class="awi-input" type="email" name="mail" id="">
-   <input class="awi-input" type="checkbox" name="mail" id="">
-   <button type="submit">Submit</button>
-</form>
+<div class="awi-panel">
+   <span class="title">Contact</span>
+   <form action="" class="awi-form">
+      <div class="awi-input">
+         <label>Firstname</label><input class="awi-input" type="text" name="firstname">
+      </div>
+      <div class="awi-input">
+         <label>Lastname</label><input class="awi-input" type="text" name="lastname">
+      </div>
+      <div class="awi-input">
+         <label>E-Mail</label><input class="awi-input" type="email" name="email">
+      </div>
+      <button class="awi-input" type="submit">Submit</button>
+   </form>
+</div>
+
+<style>
+   .awi-panel {
+      width: 100%;
+      max-width: 30em;
+   }
+</style>

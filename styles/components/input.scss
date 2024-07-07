@@ -1,42 +1,56 @@
-input.awi-input:not([type="file"],
-   [type="image"],
-   [type="checkbox"],
-   [type="radio"],
-   [type="submit"]) {
-   background-color: var(--clr-neutral-500);
-   outline: none;
-   color: var(--clr-neutral-900);
-   font-size: 1em;
-   padding: 0.25em 0.5em;
-   border: 0 solid;
-   border-radius: 0.5em;
+.awi-input {
+   $font-size: 1.25em;
+   $line-height: 1.175 * $font-size;
+   $background-color: var(--awi-input-bg-color);
+   $foreground-color: var(--awi-input-fg-color);
 
+   &:not(div),
    label:has(+&) {
-      background-color: var(--clr-neutral-500);
       outline: none;
-      color: var(--clr-neutral-900);
-      font-size: 1em;
-      padding: 0.25em 0.5em;
+      color: $foreground-color;
+      background-color: $background-color;
+      font-size: $font-size;
+      line-height: $line-height;
+      padding: 0 0.5em;
       border: 0 solid;
-      border-radius: 0.5em 0 0 0.5em;
+      border-radius: 0.5em;
    }
 
-   label+& {
-      border-radius: 0 0.5em 0.5em 0;
+   &:is(button,
+      [type="submit"]) {
+      line-height: 1.5;
+
+      &:hover {
+         background-color: var(--clr-neutral-600);
+      }
+   }
+
+   &:not([type="file"],
+      [type="image"],
+      [type="checkbox"],
+      [type="radio"],
+      [type="submit"],
+      div,
+      button) {
+      min-width: 0;
+
+      label:has(+&) {
+         display: inline-block;
+         width: max-content;
+         border-radius: 0.5em 0 0 0.5em;
+
+         border-right: 0.15em solid var(--clr-neutral-600);
+      }
+
+      label+& {
+         border-radius: 0 0.5em 0.5em 0;
+      }
    }
 }
 
-button.awi-input,
-input.awi-input[type="submit"] {
-   background-color: var(--clr-neutral-500);
-   outline: none;
-   color: var(--clr-neutral-900);
-   font-size: 1em;
-   padding: 0.25em 0.5em;
-   border: 0 solid;
-   border-radius: 0.5em;
+div.awi-input {
+   display: grid;
 
-   &:hover {
-      background-color: var(--clr-neutral-600);
-   }
+   grid-template-columns: max-content auto;
+
 }

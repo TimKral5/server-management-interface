@@ -14,6 +14,10 @@
    --clr-disabled: rgb(150 150 150);
 
    --border-rad-500: 0.8em;
+
+   /* Component Specific */
+   --awi-input-fg-color: var(--clr-neutral-800);
+   --awi-input-bg-color: var(--clr-neutral-500);
 }
 
 body {
