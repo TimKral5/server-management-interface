@@ -18,11 +18,11 @@ const ctx = new RouteContext(app);
 
 app.use(cors());
 
-app.use(async (req, res, next) => {
+/* app.use(async (req, res, next) => {
    if (!(await validateSession(req, res)))
       return;
    next("route");
-});
+}); */
 
 app.get(`${BASE}/routes`, (req, res) => {
    res.header("Content-Type", "application/json");

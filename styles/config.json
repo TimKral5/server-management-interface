@@ -1,6 +1,6 @@
 {
    "out": {
-      "dir": "./out/"
+      "dir": "../out/styles/"
    },
    "prefixes": {
       "site": "site-",

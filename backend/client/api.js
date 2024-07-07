@@ -70,10 +70,10 @@
                if (req.status == 200)
                   res(obj);
                else
-                  rej(obj);
+                  rej(req.status);
             }
          );
-         req.addEventListener("error", rej);
+         req.addEventListener("error", () => rej(req.status));
       });
    }
 

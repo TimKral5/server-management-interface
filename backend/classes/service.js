@@ -13,6 +13,10 @@ export class ServiceInfo extends Daemon {
       this.name = name;
    }
 
+   get isEmpty() {
+      return this.name == undefined;
+   }
+
    __fetchInfo() {
       const command = `sudo service '${this.name}' status`;
       try {
@@ -24,6 +28,9 @@ export class ServiceInfo extends Daemon {
    }
 
    get state() {
+      if (this.isEmpty)
+         return null;
+      
       const _info = this.__fetchInfo();
 
       if (_info.split("\n").length <= 1)
@@ -44,6 +51,9 @@ export class ServiceInfo extends Daemon {
    }
 
    get enabled() {
+      if (this.isEmpty)
+         return null;
+
       const _info = this.__fetchInfo();
 
       if (_info.split("\n").length <= 1)
@@ -57,6 +67,9 @@ export class ServiceInfo extends Daemon {
    }
 
    get description() {
+      if (this.isEmpty)
+         return null;
+      
       const _info = this.__fetchInfo();
 
       if (_info.split("\n").length <= 1)
@@ -69,6 +82,9 @@ export class ServiceInfo extends Daemon {
    }
 
    get fullName() {
+      if (this.isEmpty)
+         return null;
+      
       const _info = this.__fetchInfo();
 
       if (_info.split("\n").length <= 1)
@@ -81,6 +97,7 @@ export class ServiceInfo extends Daemon {
    }
    get export() {
       return {
+         isEmpty: this.isEmpty,
          name: this.name,
          active: this.active,
          enabled: this.enabled,
@@ -150,7 +167,7 @@ export class ServiceHandler {
       if (exists)
          return new ServiceInfo(name);
       else
-         return undefined;
+         return new ServiceInfo(null);
    }
 
    /**

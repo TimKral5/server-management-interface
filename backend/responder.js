@@ -16,14 +16,14 @@ export function respond(req, res, status, { content = "NULL", details = undefine
             res.send(JSON.stringify(content));
          else
             res.send(content);
-         console.log(`${req.method.toUpperCase()} ${req.baseUrl} => Success`);
+         console.log(`${req.method.toUpperCase()} ${req.originalUrl} => Success`);
          break;
       default:
          res.send(JSON.stringify({
             status: status,
             details
          }));
-         console.log(`${req.method.toUpperCase()} ${req.baseUrl} => ERROR`);
+         console.log(`${req.method.toUpperCase()} ${req.originalUrl} => ERROR`);
          break;
    }
    res.end();
@@ -37,7 +37,7 @@ export async function validateSession(req, res) {
    const sessionToken = req.header("X-SESSION-TOKEN");
 
    if (!(await db.validateSession(sessionToken))) {
-      respond(res, 401, {
+      respond(req, res, 401, {
          details: "Invalid Session Token"
       });
 
