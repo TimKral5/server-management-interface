@@ -10,6 +10,7 @@
       "backend": "node backend/index.js",
       "backend-lib": "mkdir -p out/lib/ && cp backend/client/api.js out/lib/api.js",
       "styles": "npm run build-styles-templates && npm run build-styles",
+      "dev": "serve out/",
 
       "test": "jest"
    },
