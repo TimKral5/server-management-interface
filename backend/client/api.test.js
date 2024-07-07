@@ -2,6 +2,8 @@ const { test, expect } = require("@jest/globals");
 const { SMIApi } = require("./api.js");
 const api = new SMIApi("http://localhost:3005/api/v0");
 
+//#region GET Operations
+
 // System Information
 test("Get Static Info", async () => {
    await expect(api.getStaticInfo()).resolves.not.toBe(undefined);
@@ -42,7 +44,7 @@ test("Get Service", async () => {
 });
 
 // Backup
-test("Get all Backup Configutations", async () => {
+test("Get all Backup Configurations", async () => {
    await expect(api.getAllBackupConfigurations()).resolves.not.toBe(undefined);
 });
 
@@ -51,7 +53,35 @@ test("Get Backup Configuration", async () => {
    await expect(api.getBackupConfiguration(configuration)).resolves.not.toBe(undefined);
 });
 
+//#endregion
+
+//#region POST Opertations
+
+test("Stop Service", async () => {
+   const service = await api.getAllServices()[0];
+   await expect(api.stopService(service)).resolves.not.toBe(undefined);
+});
+
+test("Start Service", async () => {
+   const service = await api.getAllServices()[0];
+   await expect(api.startService(service)).resolves.not.toBe(undefined);
+});
+
+test("Disable Service", async () => {
+   const service = await api.getAllServices()[0];
+   await expect(api.disableService(service)).resolves.not.toBe(undefined);
+});
+
+test("Enable Service", async () => {
+   const service = await api.getAllServices()[0];
+   await expect(api.enableService(service)).resolves.not.toBe(undefined);
+});
+
 test("Create Backup", async () => {
    const configuration = (await api.getAllBackupConfigurations())[0];
    await expect(api.createBackup(configuration)).resolves.not.toBe(undefined);
 });
+
+
+
+//#endregion
