@@ -3,6 +3,7 @@
    "version": "1.0.0",
    "description": "Server Management Interface",
    "main": "index.js",
+   "type": "module",
    "scripts": {
       "build-styles-templates": "cd styles && node index.js",
       "build-styles": "cd styles && sass components/__index.scss ../out/styles/style.css",
@@ -12,7 +13,7 @@
       "styles": "npm run build-styles-templates && npm run build-styles",
       "dev": "serve out/",
 
-      "test": "jest"
+      "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
    },
    "repository": {
       "type": "git",

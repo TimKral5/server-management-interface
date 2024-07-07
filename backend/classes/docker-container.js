@@ -2,7 +2,8 @@ import { spawnSync, execSync } from "child_process";
 import { ConfigHandler } from "./index.js";
 import { Daemon, DaemonState } from "./interfaces/daemon.js";
 
-import { readFileSync, readdirSync } from "fs";
+import { existsSync, readFileSync, readdirSync } from "fs";
+import { fsOpenFiles } from "systeminformation";
 
 /**
  * @param {string} pool
@@ -192,7 +193,7 @@ export class ComposeInfoCollection {
             return entry;
       }
 
-      return null;
+      return new ContainerInfo(null, null);
    }
 }
 
@@ -203,6 +204,8 @@ export class ComposeInfo {
    compose;
 
    constructor(pool, compose) {
+      if (!existsSync(`${pool}/${compose}/compose.yaml`))
+         return;
       this.pool = pool;
       this.compose = compose;
    }
