@@ -1,21 +1,29 @@
+$font-size: 1.25em;
+$line-height: 1.175 * $font-size;
+$background-color: var(--awi-input-bg-color);
+$foreground-color: var(--awi-input-fg-color);
+
+.awi-input:not(div),
+label.awi-input {
+   outline: none;
+   color: $foreground-color;
+   background-color: $background-color;
+   font-size: $font-size;
+   line-height: $line-height;
+   padding: 0 0.5em;
+   border: 0 solid;
+   border-radius: 0.5em;
+}
+
+label.awi-input {
+   display: inline-block;
+   width: max-content;
+   border-radius: 0.5em 0 0 0.5em;
+
+   border-right: 0.15em solid var(--clr-neutral-600);
+}
+
 .awi-input {
-   $font-size: 1.25em;
-   $line-height: 1.175 * $font-size;
-   $background-color: var(--awi-input-bg-color);
-   $foreground-color: var(--awi-input-fg-color);
-
-   &:not(div),
-   label:has(+&) {
-      outline: none;
-      color: $foreground-color;
-      background-color: $background-color;
-      font-size: $font-size;
-      line-height: $line-height;
-      padding: 0 0.5em;
-      border: 0 solid;
-      border-radius: 0.5em;
-   }
-
    &:is(button,
       [type="submit"]) {
       line-height: 1.5;
@@ -33,14 +41,6 @@
       div,
       button) {
       min-width: 0;
-
-      label:has(+&) {
-         display: inline-block;
-         width: max-content;
-         border-radius: 0.5em 0 0 0.5em;
-
-         border-right: 0.15em solid var(--clr-neutral-600);
-      }
 
       label+& {
          border-radius: 0 0.5em 0.5em 0;
