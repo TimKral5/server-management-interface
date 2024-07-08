@@ -1,7 +1,8 @@
-const config = require("./config.json");
-const fs = require("node:fs");
-const { TaggedDocument } = require("./tags.js");
-const { utils } = require("./utils.js");
+import fs from "fs";
+import { TaggedDocument } from "./tags.js";
+import { utils } from "./utils.js";
+
+export const config = JSON.parse(fs.readFileSync("config.json", "utf8"));
 
 /**
  * @param {string} path 

@@ -131,6 +131,14 @@ class TaggedDocument {
    }
 }
 
-exports.Tag = Tag;
-exports.TagCollection = TagCollection;
-exports.TaggedDocument = TaggedDocument;
+export {
+   Tag,
+   TagCollection,
+   TaggedDocument
+};
+
+export default {
+   Tag,
+   TagCollection,
+   TaggedDocument
+};
