@@ -1,0 +1,50 @@
+#dashboard-view>* {
+   --item-min-width: 18em;
+}
+
+#dashboard-view #disks-panel>table>tbody>tr>*:nth-child(1) {
+   flex: 0.7 !important;
+}
+
+#service-view tbody>tr {
+   display: grid;
+   grid-template-columns: 13em auto 9em 9em;
+}
+
+#service-view tbody>tr>*,
+#container-view tbody>tr>* {
+   min-width: 100%;
+}
+
+#service-view tbody>tr>*:nth-child(1),
+#service-view tbody>tr>*:nth-child(3),
+#service-view tbody>tr>*:nth-child(4),
+#container-view tbody>tr>*:nth-child(1),
+#container-view tbody>tr>*:nth-child(2),
+#container-view tbody>tr>*:nth-child(4) {
+   text-align: center;
+}
+
+#service-view tbody>tr>*,
+#container-view tbody>tr>* {
+   min-width: 100%;
+}
+
+#container-view tbody>tr {
+   display: grid;
+   grid-template-columns: 10em 13em auto 9em;
+}
+
+.details {
+   --item-min-width: 23em;
+}
+
+@media screen and (max-width: 400px) {
+   .details {
+      font-size: 0.75em;
+   }
+}
+
+.networks-panel>table>tbody>tr>*:nth-child(1) {
+   flex: 0.5 !important;
+}

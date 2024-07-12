@@ -1,4 +1,4 @@
-<div class="dashboard awi-grid">
+<div id="dashboard-view" class="awi-grid">
    <div class="awi-panel" style="height: 10rem;">
       <h2 class="title">CPU</h2>
       <table class="awi-panel-table">
@@ -44,7 +44,7 @@
          </tbody>
       </table>
    </div>
-   <div class="awi-panel disks-panel" style="height: 10rem;">
+   <div id="disks-panel" class="awi-panel" style="height: 10rem;">
       <h2 class="title">Disks</h2>
       <table class="awi-panel-table">
          <tbody>
@@ -124,13 +124,3 @@
       </table>
    </div>
 </div>
-
-<style>
-   .dashboard>* {
-      --item-min-width: 18em;
-   }
-
-   .disks-panel>table>tbody>tr>*:nth-child(1) {
-      flex: 0.7 !important;
-   }
-</style>

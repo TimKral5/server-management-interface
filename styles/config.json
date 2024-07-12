@@ -141,6 +141,7 @@
          
       },
       "files": [
+         "public/custom.css",
          "public/script.js"
       ]
    }
