@@ -1,0 +1,14 @@
+site_name: SMI Documentation
+nav:
+ - 'Introduction': index.md
+ - 'Frontent':
+    - 'Component Library':
+       - frontend/styles/layout.md
+       - frontend/styles/styleguide.md
+       - 'Components':
+          - frontend/styles/components/grid.md
+          - frontend/styles/components/panel.md
+          - frontend/styles/components/inputs.md
+ - frontend/styles/sitemap.md
+ - frontend/views.md
+theme: readthedocs

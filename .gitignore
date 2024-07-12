@@ -1,5 +1,11 @@
 
+# NodeJS
 package-lock.json
 node_modules/
-out/
+
+# Data Directories
 backups/
+
+# Output Directories
+site/
+out/

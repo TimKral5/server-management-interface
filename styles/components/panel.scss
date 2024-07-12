@@ -3,7 +3,6 @@
    border-radius: var(--border-rad-500);
    background-color: var(--clr-neutral-300);
 
-   &>span,
    &>.title {
       display: block;
       font-size: 1em;
@@ -29,7 +28,7 @@
       margin: 0 0.5em;
    }
 
-   &>table.awi-panel-table {
+   &>table {
       width: 100%;
       margin-bottom: 0.75em;
 
